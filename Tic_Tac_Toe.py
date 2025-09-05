@@ -5,7 +5,7 @@ import random
 CELLS = 9
 GAME_WIDTH = 720
 GAME_HEIGHT = GAME_WIDTH
-CELL_SIZE = GAME_WIDTH // 9
+CELL_SIZE = GAME_WIDTH // 3
 BACKGROUND_COLOR = "#000000"
 X_COLOR = "#1167b1"
 O_COLOR = "#b11111"
@@ -69,8 +69,8 @@ class TicTacToe:
 
     def on_click(self, event: Event):
         if playing and not (ai_enabled and self.current_player == 'O'):
-            col = event.x // (GAME_WIDTH // 3)
-            row = event.y // (GAME_HEIGHT // 3)
+            col = event.x // CELL_SIZE
+            row = event.y // CELL_SIZE
             cell = row * 3 + col
             self.make_move(cell)
 
